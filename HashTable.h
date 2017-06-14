@@ -11,7 +11,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-const int TABLE_SIZE = 10000;
+const int TABLE_SIZE = 100000;
 
 //HashNode Class Declaration
 class HashNode
@@ -62,7 +62,7 @@ class HashMap
         }
 
         //Insert Element at a key
-        void Insert(string value){
+        void add(const string& value){
             int hash_val = setKey(value);
             HashNode* prev = NULL;
             HashNode* entry = htable[hash_val];
@@ -87,7 +87,7 @@ class HashMap
             }
         }
         // Search Element at a key
-        int get(string value){
+        int get(const string& value){
             int hash_val = setKey(value);
             HashNode* entry = htable[hash_val];
             int count = 0;
@@ -101,12 +101,12 @@ class HashMap
         }
 
         //Returns if the word is in the file
-        bool contains(string str){
+        bool contains(const string& str){
         	int ans = get(str);
         	if (ans == 0)
-        		return true;
-        	else
         		return false;
+        	else
+        		return true;
         }
 
         //Return collisions
